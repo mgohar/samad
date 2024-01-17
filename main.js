@@ -190,7 +190,7 @@ function updateLight() {
   sportLight.penumbra = sportLightObj.penumbra;
   sportLight.decay = sportLightObj.decay;
 }
-const track = document.querySelector(".canvasParent")
+const track = document.querySelector(".canvasparent")
 window.addEventListener("scroll", function (event) {
   const trackHeight = track.offsetHeight;
   const windowHeight = window.innerHeight;
