@@ -77,13 +77,10 @@ window.addEventListener("resize", function () {
 // const box = new THREE.Mesh(boxGeometry, boxMaterial);
 // scene.add(box);
 
-gltfloader.load("src/GLTF/SamadLogo/model.gltf", (gltf) => {
+gltfloader.load("https://cdn.jsdelivr.net/gh/mgohar/samad@0.0.3/src/GLTF/SamadLogo/model.gltf", (gltf) => {
   const model = gltf.scene;
   GlobalModel= gltf.scene;
   model.scale.set(1.8, 1.8, 1.8)
-  const colorTexture = new THREE.TextureLoader().load(
-    "src/GLTF/SamadLogo/texture.jpg"
-  );
   model.traverse((child) => {
     if (child.isMesh) {
       // child.material.map = colorTexture;
