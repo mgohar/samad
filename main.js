@@ -4,8 +4,8 @@ import { TransformControls } from "three/examples/jsm/controls/TransformControls
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import gsap from "gsap";
 import * as dat from "dat.gui";
-const gui = new dat.GUI();
-var sLightGUI = gui.addFolder("Sport Light");
+// const gui = new dat.GUI();
+// var sLightGUI = gui.addFolder("Sport Light");
 
 //===================================================== SHADERS
 const vertexShader = `
@@ -37,7 +37,7 @@ const fragmentShader = `
 //===================================================== Variables
 let canvas,
   gltfloader = new GLTFLoader(),
-  WIDTH = window.innerWidth,
+  WIDTH = document.body.clientWidth,
   GlobalModel,
   HEIGHT = window.innerHeight;
 
@@ -53,7 +53,7 @@ var renderer = new THREE.WebGLRenderer({
   stencil: false,
   depth: true,
 });
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(document.body.clientWidth, window.innerHeight);
 //===================================================== Create an empty scene
 var scene = new THREE.Scene();
 // scene.background=new THREE.TextureLoader().load("/city_bg.jpg");
@@ -66,8 +66,8 @@ camera.position.z = 0.5;
 // orbitControls.enableDamping = true;
 //===================================================== Resize
 window.addEventListener("resize", function () {
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.aspect = window.innerWidth / window.innerHeight;
+  renderer.setSize(document.body.clientWidth, window.innerHeight);
+  camera.aspect = document.body.clientWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 });
 
@@ -109,11 +109,11 @@ var sportLightObj = {
   penumbra:0.0,
   decay:1
 };
-sLightGUI.add(sportLightObj, "intensity", 0, 100).onChange((e)=>{sportLightObj.intensity=e});
-sLightGUI.add(sportLightObj, "distance", 0, 10).onChange((e)=>{sportLightObj.distance=e});
-sLightGUI.add(sportLightObj, "angle", 0, Math.PI / 8).onChange((e)=>{sportLightObj.angle=e});
-sLightGUI.add(sportLightObj, "penumbra", 0.0, 1.0).onChange((e)=>{sportLightObj.penumbra=e});
-sLightGUI.add(sportLightObj, "decay", 1.0, 3).onChange((e)=>{sportLightObj.decay=e});
+// sLightGUI.add(sportLightObj, "intensity", 0, 100).onChange((e)=>{sportLightObj.intensity=e});
+// sLightGUI.add(sportLightObj, "distance", 0, 10).onChange((e)=>{sportLightObj.distance=e});
+// sLightGUI.add(sportLightObj, "angle", 0, Math.PI / 8).onChange((e)=>{sportLightObj.angle=e});
+// sLightGUI.add(sportLightObj, "penumbra", 0.0, 1.0).onChange((e)=>{sportLightObj.penumbra=e});
+// sLightGUI.add(sportLightObj, "decay", 1.0, 3).onChange((e)=>{sportLightObj.decay=e});
 var sportLight = new THREE.SpotLight(
   new THREE.Color("white"),
   sportLightObj.intensity,
